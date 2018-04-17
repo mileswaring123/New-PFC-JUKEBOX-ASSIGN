@@ -89,10 +89,12 @@
             // 
             // hScrollBar
             // 
+            this.hScrollBar.LargeChange = 1;
             this.hScrollBar.Location = new System.Drawing.Point(123, 212);
             this.hScrollBar.Name = "hScrollBar";
             this.hScrollBar.Size = new System.Drawing.Size(164, 16);
             this.hScrollBar.TabIndex = 4;
+            this.hScrollBar.ValueChanged += new System.EventHandler(this.hScrollBar_ValueChanged);
             // 
             // Form1
             // 

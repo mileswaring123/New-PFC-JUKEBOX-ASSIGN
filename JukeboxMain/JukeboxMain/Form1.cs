@@ -29,8 +29,24 @@ namespace JukeboxMain
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+
             ReadTextFile();
+
+            hScrollBar.Maximum = NoOfLists - 1;
+
             DisplayListBox[0] = new ListBox();
+            DisplayListBox[0].Items.Add(ListOne[1]);
+            DisplayListBox[0].Items.Add(ListOne[2]);
+
+            DisplayListBox[1] = new ListBox();
+            DisplayListBox[1].Items.Add(ListTwo[1]);
+            DisplayListBox[1].Items.Add(ListTwo[2]);
+
+            DisplayListBox[2] = new ListBox();
+            DisplayListBox[2].Items.Add(ListThree[1]);
+            DisplayListBox[2].Items.Add(ListThree[2]);
+            DisplayListBox[2].Items.Add(ListThree[3]);
             
 
 
@@ -83,16 +99,14 @@ namespace JukeboxMain
                 Counter++;
             }
 
-            MessageBox.Show(ListOne[0]);
-            MessageBox.Show(ListOne[1]);
-            MessageBox.Show(ListOne[2]);
-            MessageBox.Show(ListTwo[0]);
-            MessageBox.Show(ListTwo[1]);
-            MessageBox.Show(ListTwo[2]);
-            MessageBox.Show(ListThree[0]);
-            MessageBox.Show(ListThree[1]);
-            MessageBox.Show(ListThree[2]);
-            MessageBox.Show(ListThree[3]);
+
+        }
+
+        private void hScrollBar_ValueChanged(object sender, EventArgs e)
+        {
+            int WhichList = hScrollBar.Value;
+            MessageBox.Show(WhichList.ToString());
+            
         }
     }
 }
