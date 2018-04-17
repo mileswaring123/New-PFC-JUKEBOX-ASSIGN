@@ -32,9 +32,19 @@ namespace JukeboxMain
 
 
             ReadTextFile();
-
+            ConfigureListBoxes();
             hScrollBar.Maximum = NoOfLists - 1;
 
+            
+            Genrelist_Lst.Items.Add(ListOne[2]);
+
+            
+
+
+        }
+
+        private void ConfigureListBoxes()
+        {
             DisplayListBox[0] = new ListBox();
             DisplayListBox[0].Items.Add(ListOne[1]);
             DisplayListBox[0].Items.Add(ListOne[2]);
@@ -47,11 +57,7 @@ namespace JukeboxMain
             DisplayListBox[2].Items.Add(ListThree[1]);
             DisplayListBox[2].Items.Add(ListThree[2]);
             DisplayListBox[2].Items.Add(ListThree[3]);
-            
-
-
         }
-
 
         private void ReadTextFile()
         {
@@ -105,8 +111,23 @@ namespace JukeboxMain
         private void hScrollBar_ValueChanged(object sender, EventArgs e)
         {
             int WhichList = hScrollBar.Value;
-            MessageBox.Show(WhichList.ToString());
-            
+            Genrelist_Lst.Items.Clear();
+            if (WhichList == 0)
+            {
+                Genrelist_Lst.Items.Add(ListOne[2]);
+            }
+            if (WhichList == 1)
+            {
+                
+                Genrelist_Lst.Items.Add(ListTwo[2]);
+            }
+            if (WhichList == 2)
+            {
+
+                Genrelist_Lst.Items.Add(ListThree[2]);
+                Genrelist_Lst.Items.Add(ListThree[3]);
+            }
+
         }
     }
 }
