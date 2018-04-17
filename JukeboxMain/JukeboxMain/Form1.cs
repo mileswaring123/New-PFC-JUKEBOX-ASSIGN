@@ -114,18 +114,36 @@ namespace JukeboxMain
             Genrelist_Lst.Items.Clear();
             if (WhichList == 0)
             {
-                Genrelist_Lst.Items.Add(ListOne[2]);
+                int repeat = Convert.ToInt32(ListOne[0]);
+                MessageBox.Show(repeat.ToString());
+                int select_Song = 2;
+                for (int index = 0; index < repeat; index++)
+                {
+                    Genrelist_Lst.Items.Add(ListOne[select_Song]);
+                    select_Song++;
+                }
             }
             if (WhichList == 1)
             {
-                
-                Genrelist_Lst.Items.Add(ListTwo[2]);
+
+                int repeat = Convert.ToInt32(ListTwo[0]);
+                int select_Song = 2;
+                for (int index = 0; index < repeat; index++)
+                {
+                    Genrelist_Lst.Items.Add(ListTwo[select_Song]);
+                    select_Song++;
+                }
             }
             if (WhichList == 2)
             {
+                int repeat = Convert.ToInt32(ListThree[0]);
+                int select_Song = 2;
+                for(int index = 0; index < repeat; index++)
+                {
+                    Genrelist_Lst.Items.Add(ListThree[select_Song]);
+                    select_Song++;
+                }
 
-                Genrelist_Lst.Items.Add(ListThree[2]);
-                Genrelist_Lst.Items.Add(ListThree[3]);
             }
 
         }
