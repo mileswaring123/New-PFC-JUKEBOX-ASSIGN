@@ -16,5 +16,10 @@ namespace JukeboxMain
         {
             InitializeComponent();
         }
+
+        private void About_Close_btn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

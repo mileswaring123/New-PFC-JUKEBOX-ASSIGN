@@ -62,17 +62,19 @@
             this.setUpToolStripMenuItem.Name = "setUpToolStripMenuItem";
             this.setUpToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.setUpToolStripMenuItem.Text = "Set Up";
+            this.setUpToolStripMenuItem.Click += new System.EventHandler(this.setUpToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(268, 9);
+            this.label1.Location = new System.Drawing.Point(215, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(195, 13);
             this.label1.TabIndex = 1;
@@ -80,13 +82,15 @@
             // 
             // GenreTitle_txt
             // 
-            this.GenreTitle_txt.Location = new System.Drawing.Point(123, 114);
+            this.GenreTitle_txt.BackColor = System.Drawing.Color.OrangeRed;
+            this.GenreTitle_txt.Location = new System.Drawing.Point(123, 123);
             this.GenreTitle_txt.Name = "GenreTitle_txt";
             this.GenreTitle_txt.Size = new System.Drawing.Size(164, 20);
             this.GenreTitle_txt.TabIndex = 2;
             // 
             // Genrelist_Lst
             // 
+            this.Genrelist_Lst.BackColor = System.Drawing.SystemColors.Info;
             this.Genrelist_Lst.FormattingEnabled = true;
             this.Genrelist_Lst.Location = new System.Drawing.Point(123, 140);
             this.Genrelist_Lst.Name = "Genrelist_Lst";
@@ -105,6 +109,7 @@
             // 
             // PresentlyPlaying_txt
             // 
+            this.PresentlyPlaying_txt.BackColor = System.Drawing.Color.Lime;
             this.PresentlyPlaying_txt.Location = new System.Drawing.Point(123, 231);
             this.PresentlyPlaying_txt.Name = "PresentlyPlaying_txt";
             this.PresentlyPlaying_txt.Size = new System.Drawing.Size(164, 20);
@@ -123,6 +128,7 @@
             // 
             // PlayList_Lst
             // 
+            this.PlayList_Lst.BackColor = System.Drawing.SystemColors.Info;
             this.PlayList_Lst.FormattingEnabled = true;
             this.PlayList_Lst.Location = new System.Drawing.Point(123, 257);
             this.PlayList_Lst.Name = "PlayList_Lst";

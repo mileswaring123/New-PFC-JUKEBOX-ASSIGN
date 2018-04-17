@@ -234,5 +234,18 @@ namespace JukeboxMain
             IsSongPlaying = true;//enable song playing as true
 
         }
+
+        private void setUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetUp setUp = new SetUp();
+            setUp.ShowDialog();
+            
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.ShowDialog();
+        }
     }
 }

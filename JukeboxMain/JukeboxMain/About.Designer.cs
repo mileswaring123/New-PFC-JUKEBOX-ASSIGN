@@ -87,6 +87,7 @@
             this.About_Close_btn.TabIndex = 3;
             this.About_Close_btn.Text = "OK";
             this.About_Close_btn.UseVisualStyleBackColor = true;
+            this.About_Close_btn.Click += new System.EventHandler(this.About_Close_btn_Click);
             // 
             // About
             // 
