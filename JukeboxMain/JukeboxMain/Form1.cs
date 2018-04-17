@@ -17,12 +17,18 @@ namespace JukeboxMain
             InitializeComponent();
         }
         string MediaFileDirectory = Directory.GetCurrentDirectory() + "\\Media\\";
-
+        string TrackFileDirectory = Directory.GetCurrentDirectory() + "\\Tracks\\";
         int NoOfLists;
+
+        int SelectedIndex;
+
+        bool IsSongPlaying = false;
 
         string[] ListOne = new string[20];
         string[] ListTwo = new string[20];
         string[] ListThree = new string[20];
+
+        string[] Playlist = new string[20];
 
         ListBox[] DisplayListBox = new ListBox[3];
 
@@ -35,11 +41,8 @@ namespace JukeboxMain
             ConfigureListBoxes();
             hScrollBar.Maximum = NoOfLists - 1;
 
-            
-            Genrelist_Lst.Items.Add(ListOne[2]);
 
-            
-
+            DisplayInitialList();
 
         }
 
@@ -114,18 +117,11 @@ namespace JukeboxMain
             Genrelist_Lst.Items.Clear();
             if (WhichList == 0)
             {
-                int repeat = Convert.ToInt32(ListOne[0]);
-                MessageBox.Show(repeat.ToString());
-                int select_Song = 2;
-                for (int index = 0; index < repeat; index++)
-                {
-                    Genrelist_Lst.Items.Add(ListOne[select_Song]);
-                    select_Song++;
-                }
+                DisplayInitialList();
             }
             if (WhichList == 1)
             {
-
+                GenreTitle_txt.Text = ListTwo[1];
                 int repeat = Convert.ToInt32(ListTwo[0]);
                 int select_Song = 2;
                 for (int index = 0; index < repeat; index++)
@@ -136,6 +132,7 @@ namespace JukeboxMain
             }
             if (WhichList == 2)
             {
+                GenreTitle_txt.Text = ListThree[1];
                 int repeat = Convert.ToInt32(ListThree[0]);
                 int select_Song = 2;
                 for(int index = 0; index < repeat; index++)
@@ -146,6 +143,50 @@ namespace JukeboxMain
 
             }
 
+        }
+        private void DisplayInitialList()
+        {
+            GenreTitle_txt.Text = ListOne[1];
+            int repeat = Convert.ToInt32(ListOne[0]);
+            int select_Song = 2;
+            for (int index = 0; index < repeat; index++)
+            {
+                Genrelist_Lst.Items.Add(ListOne[select_Song]);
+                select_Song++;
+            }
+
+        }
+
+        private void Genrelist_Lst_DoubleClick(object sender, EventArgs e)
+        {
+            SelectedIndex = Genrelist_Lst.SelectedIndex;
+            int WhichList = hScrollBar.Value;
+            if (WhichList == 0)
+            {
+                PresentlyPlaying_txt.Text = ListOne[SelectedIndex + 2];
+                
+                PlaySong();
+            }
+            if (WhichList == 1)
+            {
+                PresentlyPlaying_txt.Text = ListTwo[SelectedIndex + 2];
+                
+                PlaySong();
+            }
+            if (WhichList == 2)
+            {
+                PresentlyPlaying_txt.Text = ListThree[SelectedIndex + 2];
+                
+                PlaySong();
+            }
+        }
+
+        private void PlaySong()
+        {
+            string FullTrackPath = TrackFileDirectory + PresentlyPlaying_txt.Text;
+            MessageBox.Show(FullTrackPath);
+            WindowsMediaPlayer.URL = FullTrackPath;
+            WindowsMediaPlayer.Ctlcontrols.play();
         }
     }
 }

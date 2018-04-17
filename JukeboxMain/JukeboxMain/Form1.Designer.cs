@@ -36,7 +36,10 @@
             this.GenreTitle_txt = new System.Windows.Forms.TextBox();
             this.Genrelist_Lst = new System.Windows.Forms.ListBox();
             this.hScrollBar = new System.Windows.Forms.HScrollBar();
+            this.PresentlyPlaying_txt = new System.Windows.Forms.TextBox();
+            this.WindowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WindowsMediaPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -86,6 +89,7 @@
             this.Genrelist_Lst.Name = "Genrelist_Lst";
             this.Genrelist_Lst.Size = new System.Drawing.Size(164, 69);
             this.Genrelist_Lst.TabIndex = 3;
+            this.Genrelist_Lst.DoubleClick += new System.EventHandler(this.Genrelist_Lst_DoubleClick);
             // 
             // hScrollBar
             // 
@@ -96,6 +100,23 @@
             this.hScrollBar.TabIndex = 4;
             this.hScrollBar.ValueChanged += new System.EventHandler(this.hScrollBar_ValueChanged);
             // 
+            // PresentlyPlaying_txt
+            // 
+            this.PresentlyPlaying_txt.Location = new System.Drawing.Point(123, 231);
+            this.PresentlyPlaying_txt.Name = "PresentlyPlaying_txt";
+            this.PresentlyPlaying_txt.Size = new System.Drawing.Size(164, 20);
+            this.PresentlyPlaying_txt.TabIndex = 5;
+            // 
+            // WindowsMediaPlayer
+            // 
+            this.WindowsMediaPlayer.Enabled = true;
+            this.WindowsMediaPlayer.Location = new System.Drawing.Point(0, -1);
+            this.WindowsMediaPlayer.Name = "WindowsMediaPlayer";
+            this.WindowsMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WindowsMediaPlayer.OcxState")));
+            this.WindowsMediaPlayer.Size = new System.Drawing.Size(75, 23);
+            this.WindowsMediaPlayer.TabIndex = 6;
+            this.WindowsMediaPlayer.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -103,6 +124,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(410, 478);
+            this.Controls.Add(this.WindowsMediaPlayer);
+            this.Controls.Add(this.PresentlyPlaying_txt);
             this.Controls.Add(this.hScrollBar);
             this.Controls.Add(this.Genrelist_Lst);
             this.Controls.Add(this.GenreTitle_txt);
@@ -115,6 +138,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WindowsMediaPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,6 +153,8 @@
         private System.Windows.Forms.TextBox GenreTitle_txt;
         private System.Windows.Forms.ListBox Genrelist_Lst;
         private System.Windows.Forms.HScrollBar hScrollBar;
+        private System.Windows.Forms.TextBox PresentlyPlaying_txt;
+        private AxWMPLib.AxWindowsMediaPlayer WindowsMediaPlayer;
     }
 }
 
