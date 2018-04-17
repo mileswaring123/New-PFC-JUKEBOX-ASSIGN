@@ -17,14 +17,23 @@ namespace JukeboxMain
             InitializeComponent();
         }
         string MediaFileDirectory = Directory.GetCurrentDirectory() + "\\Media\\";
+
         int NoOfLists;
 
         string[] ListOne = new string[20];
+        string[] ListTwo = new string[20];
+        string[] ListThree = new string[20];
 
 
-        
+
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+            ReadTextFile();
+        }
+
+
+        private void ReadTextFile()
         {
             StreamReader myInputStream = File.OpenText(MediaFileDirectory + "Media.txt");
             string LineOfText;
@@ -47,18 +56,39 @@ namespace JukeboxMain
                 ListOne[Counter] = myInputStream.ReadLine();
                 Counter++;
             }
-
-            int test = 0;
-            while(test < 10)
+            //List Two Data Entry//
+            Counter = 0;
+            ListTwo[Counter] = myInputStream.ReadLine();
+            Counter++;
+            ListTwo[Counter] = myInputStream.ReadLine();
+            Counter++;
+            for (int index = 0; index < Convert.ToInt32(ListTwo[0]); index++)
             {
-                MessageBox.Show(ListOne[test]);
-                test++;
+                ListTwo[Counter] = myInputStream.ReadLine();
+                Counter++;
             }
-            
-            //while ((LineOfText = myInputStream.ReadLine()) != null)
-            //{
-           // }
-            
+            //List Two Data Entry//
+            Counter = 0;
+            ListThree[Counter] = myInputStream.ReadLine();
+            Counter++;
+            ListThree[Counter] = myInputStream.ReadLine();
+            Counter++;
+            for (int index = 0; index < Convert.ToInt32(ListThree[0]); index++)
+            {
+                ListThree[Counter] = myInputStream.ReadLine();
+                Counter++;
+            }
+
+            MessageBox.Show(ListOne[0]);
+            MessageBox.Show(ListOne[1]);
+            MessageBox.Show(ListOne[2]);
+            MessageBox.Show(ListTwo[0]);
+            MessageBox.Show(ListTwo[1]);
+            MessageBox.Show(ListTwo[2]);
+            MessageBox.Show(ListThree[0]);
+            MessageBox.Show(ListThree[1]);
+            MessageBox.Show(ListThree[2]);
+            MessageBox.Show(ListThree[3]);
         }
     }
 }
