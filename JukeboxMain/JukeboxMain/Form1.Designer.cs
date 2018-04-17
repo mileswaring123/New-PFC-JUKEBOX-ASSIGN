@@ -41,8 +41,10 @@
             this.WindowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.PlayList_Lst = new System.Windows.Forms.ListBox();
             this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WindowsMediaPlayer)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -83,7 +85,7 @@
             // GenreTitle_txt
             // 
             this.GenreTitle_txt.BackColor = System.Drawing.Color.OrangeRed;
-            this.GenreTitle_txt.Location = new System.Drawing.Point(123, 123);
+            this.GenreTitle_txt.Location = new System.Drawing.Point(0, 0);
             this.GenreTitle_txt.Name = "GenreTitle_txt";
             this.GenreTitle_txt.Size = new System.Drawing.Size(164, 20);
             this.GenreTitle_txt.TabIndex = 2;
@@ -92,7 +94,7 @@
             // 
             this.Genrelist_Lst.BackColor = System.Drawing.SystemColors.Info;
             this.Genrelist_Lst.FormattingEnabled = true;
-            this.Genrelist_Lst.Location = new System.Drawing.Point(123, 140);
+            this.Genrelist_Lst.Location = new System.Drawing.Point(0, 19);
             this.Genrelist_Lst.Name = "Genrelist_Lst";
             this.Genrelist_Lst.Size = new System.Drawing.Size(164, 69);
             this.Genrelist_Lst.TabIndex = 3;
@@ -101,16 +103,16 @@
             // hScrollBar
             // 
             this.hScrollBar.LargeChange = 1;
-            this.hScrollBar.Location = new System.Drawing.Point(123, 212);
+            this.hScrollBar.Location = new System.Drawing.Point(0, 85);
             this.hScrollBar.Name = "hScrollBar";
-            this.hScrollBar.Size = new System.Drawing.Size(164, 16);
+            this.hScrollBar.Size = new System.Drawing.Size(164, 22);
             this.hScrollBar.TabIndex = 4;
             this.hScrollBar.ValueChanged += new System.EventHandler(this.hScrollBar_ValueChanged);
             // 
             // PresentlyPlaying_txt
             // 
             this.PresentlyPlaying_txt.BackColor = System.Drawing.Color.Lime;
-            this.PresentlyPlaying_txt.Location = new System.Drawing.Point(123, 231);
+            this.PresentlyPlaying_txt.Location = new System.Drawing.Point(123, 216);
             this.PresentlyPlaying_txt.Name = "PresentlyPlaying_txt";
             this.PresentlyPlaying_txt.Size = new System.Drawing.Size(164, 20);
             this.PresentlyPlaying_txt.TabIndex = 5;
@@ -130,7 +132,7 @@
             // 
             this.PlayList_Lst.BackColor = System.Drawing.SystemColors.Info;
             this.PlayList_Lst.FormattingEnabled = true;
-            this.PlayList_Lst.Location = new System.Drawing.Point(123, 257);
+            this.PlayList_Lst.Location = new System.Drawing.Point(123, 242);
             this.PlayList_Lst.Name = "PlayList_Lst";
             this.PlayList_Lst.Size = new System.Drawing.Size(164, 108);
             this.PlayList_Lst.TabIndex = 7;
@@ -140,6 +142,18 @@
             this.Timer.Interval = 3000;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.GenreTitle_txt);
+            this.groupBox1.Controls.Add(this.Genrelist_Lst);
+            this.groupBox1.Controls.Add(this.hScrollBar);
+            this.groupBox1.Location = new System.Drawing.Point(123, 99);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(164, 111);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,12 +161,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(410, 478);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.PlayList_Lst);
             this.Controls.Add(this.WindowsMediaPlayer);
             this.Controls.Add(this.PresentlyPlaying_txt);
-            this.Controls.Add(this.hScrollBar);
-            this.Controls.Add(this.Genrelist_Lst);
-            this.Controls.Add(this.GenreTitle_txt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
@@ -163,6 +175,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WindowsMediaPlayer)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,6 +195,7 @@
         private AxWMPLib.AxWindowsMediaPlayer WindowsMediaPlayer;
         private System.Windows.Forms.ListBox PlayList_Lst;
         private System.Windows.Forms.Timer Timer;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

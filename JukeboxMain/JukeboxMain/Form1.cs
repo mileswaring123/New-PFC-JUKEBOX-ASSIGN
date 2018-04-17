@@ -237,15 +237,15 @@ namespace JukeboxMain
 
         private void setUpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetUp setUp = new SetUp();
-            setUp.ShowDialog();
+            SetUp setUp = new SetUp();//creates a new set up page
+            setUp.ShowDialog();//opens up the page
             
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            About about = new About();
-            about.ShowDialog();
+            About about = new About();//creates a new about page
+            about.ShowDialog();//opens up the page
         }
     }
 }
