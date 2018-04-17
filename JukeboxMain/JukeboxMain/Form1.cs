@@ -21,6 +21,7 @@ namespace JukeboxMain
         int NoOfLists;
 
         int SelectedIndex;
+        int listSelected;
 
         bool IsSongPlaying = false;
 
@@ -30,36 +31,12 @@ namespace JukeboxMain
 
         string[] Playlist = new string[20];
 
-        ListBox[] DisplayListBox = new ListBox[3];
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
-
-
             ReadTextFile();
-            ConfigureListBoxes();
             hScrollBar.Maximum = NoOfLists - 1;
-
-
             DisplayInitialList();
 
-        }
-
-        private void ConfigureListBoxes()
-        {
-            DisplayListBox[0] = new ListBox();
-            DisplayListBox[0].Items.Add(ListOne[1]);
-            DisplayListBox[0].Items.Add(ListOne[2]);
-
-            DisplayListBox[1] = new ListBox();
-            DisplayListBox[1].Items.Add(ListTwo[1]);
-            DisplayListBox[1].Items.Add(ListTwo[2]);
-
-            DisplayListBox[2] = new ListBox();
-            DisplayListBox[2].Items.Add(ListThree[1]);
-            DisplayListBox[2].Items.Add(ListThree[2]);
-            DisplayListBox[2].Items.Add(ListThree[3]);
         }
 
         private void ReadTextFile()
@@ -70,7 +47,6 @@ namespace JukeboxMain
             if (int.TryParse(LineOfText, out NoOfLists))
             {
                 NoOfLists = Convert.ToInt32(LineOfText);
-                MessageBox.Show(NoOfLists.ToString());
             }
 
 
@@ -163,30 +139,73 @@ namespace JukeboxMain
             int WhichList = hScrollBar.Value;
             if (WhichList == 0)
             {
-                PresentlyPlaying_txt.Text = ListOne[SelectedIndex + 2];
-                
-                PlaySong();
+                listSelected = 0;
+                if (IsSongPlaying == true)
+                {
+                    AddToPlaylist();
+                }
+                else if (IsSongPlaying == false)
+                {
+                    PresentlyPlaying_txt.Text = ListOne[SelectedIndex + 2];
+                    string FullTrackPath = TrackFileDirectory + PresentlyPlaying_txt.Text;
+                    WindowsMediaPlayer.URL = FullTrackPath;
+                    WindowsMediaPlayer.Ctlcontrols.play();
+                    IsSongPlaying = true;
+                }
             }
             if (WhichList == 1)
             {
-                PresentlyPlaying_txt.Text = ListTwo[SelectedIndex + 2];
-                
-                PlaySong();
+                listSelected = 1;
+                if (IsSongPlaying == true)
+                {
+                    AddToPlaylist();
+                }
+                else if (IsSongPlaying == false)
+                {
+                    PresentlyPlaying_txt.Text = ListOne[SelectedIndex + 2];
+                    string FullTrackPath = TrackFileDirectory + PresentlyPlaying_txt.Text;
+                    WindowsMediaPlayer.URL = FullTrackPath;
+                    WindowsMediaPlayer.Ctlcontrols.play();
+                    IsSongPlaying = true;
+                }
             }
             if (WhichList == 2)
             {
-                PresentlyPlaying_txt.Text = ListThree[SelectedIndex + 2];
-                
-                PlaySong();
+                listSelected = 2;
+                if (IsSongPlaying == true)
+                {
+                    AddToPlaylist();
+                }
+                else if (IsSongPlaying == false)
+                {
+                    PresentlyPlaying_txt.Text = ListOne[SelectedIndex + 2];
+                    string FullTrackPath = TrackFileDirectory + PresentlyPlaying_txt.Text;
+                    WindowsMediaPlayer.URL = FullTrackPath;
+                    WindowsMediaPlayer.Ctlcontrols.play();
+                    IsSongPlaying = true;
+                }
             }
         }
 
-        private void PlaySong()
+        private void AddToPlaylist()
         {
-            string FullTrackPath = TrackFileDirectory + PresentlyPlaying_txt.Text;
-            MessageBox.Show(FullTrackPath);
-            WindowsMediaPlayer.URL = FullTrackPath;
-            WindowsMediaPlayer.Ctlcontrols.play();
+            if(listSelected == 0)
+            {
+
+                PlayList_Lst.Items.Add(ListOne[SelectedIndex + 2]);
+            }
+            if (listSelected == 1)
+            {
+
+                PlayList_Lst.Items.Add(ListTwo[SelectedIndex + 2]);
+            }
+            if (listSelected == 2)
+            {
+
+                PlayList_Lst.Items.Add(ListThree[SelectedIndex + 2]);
+            }
+
         }
+
     }
 }

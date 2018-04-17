@@ -38,6 +38,7 @@
             this.hScrollBar = new System.Windows.Forms.HScrollBar();
             this.PresentlyPlaying_txt = new System.Windows.Forms.TextBox();
             this.WindowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
+            this.PlayList_Lst = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WindowsMediaPlayer)).BeginInit();
             this.SuspendLayout();
@@ -117,6 +118,14 @@
             this.WindowsMediaPlayer.TabIndex = 6;
             this.WindowsMediaPlayer.Visible = false;
             // 
+            // PlayList_Lst
+            // 
+            this.PlayList_Lst.FormattingEnabled = true;
+            this.PlayList_Lst.Location = new System.Drawing.Point(123, 257);
+            this.PlayList_Lst.Name = "PlayList_Lst";
+            this.PlayList_Lst.Size = new System.Drawing.Size(164, 108);
+            this.PlayList_Lst.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,6 +133,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(410, 478);
+            this.Controls.Add(this.PlayList_Lst);
             this.Controls.Add(this.WindowsMediaPlayer);
             this.Controls.Add(this.PresentlyPlaying_txt);
             this.Controls.Add(this.hScrollBar);
@@ -155,6 +165,7 @@
         private System.Windows.Forms.HScrollBar hScrollBar;
         private System.Windows.Forms.TextBox PresentlyPlaying_txt;
         private AxWMPLib.AxWindowsMediaPlayer WindowsMediaPlayer;
+        private System.Windows.Forms.ListBox PlayList_Lst;
     }
 }
 
