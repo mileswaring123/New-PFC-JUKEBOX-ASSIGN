@@ -83,8 +83,6 @@ namespace JukeboxMain
                 ListThree[Counter] = myInputStream.ReadLine();//reads a line of the text file
                 Counter++;//increment the counter
             }
-
-
         }
 
         private void hScrollBar_ValueChanged(object sender, EventArgs e)
@@ -137,107 +135,103 @@ namespace JukeboxMain
         {
             SelectedIndex = Genrelist_Lst.SelectedIndex;//gets the index of the song selected by the user
             int WhichList = hScrollBar.Value;//finds out which list the user has selected from 
-            if (WhichList == 0)//if the list chosen is the second one
+            if (WhichList == 0)//if the list chosen is the first one
             {
-                listSelected = 0;
-                if (IsSongPlaying == true)
+                listSelected = 0;//sets the list selected 
+                if (IsSongPlaying == true)//if a song is alread playing
                 {
-                    AddToPlaylist();
+                    AddToPlaylist();//call the playlist function
                 }
-                else if (IsSongPlaying == false)
+                else if (IsSongPlaying == false)//if a song isnt playing
                 {
-                    PresentlyPlaying_txt.Text = ListOne[SelectedIndex + 2];
-                    string FullTrackPath = TrackFileDirectory + PresentlyPlaying_txt.Text;
-                    WindowsMediaPlayer.URL = FullTrackPath;
-                    WindowsMediaPlayer.Ctlcontrols.play();
-                    IsSongPlaying = true;
-                    Timer.Enabled = false;
+                    PresentlyPlaying_txt.Text = ListOne[SelectedIndex + 2];//add the song chosen to the presenetly playing text box
+                    string FullTrackPath = TrackFileDirectory + PresentlyPlaying_txt.Text;//create the full path so the song can be played
+                    WindowsMediaPlayer.URL = FullTrackPath;//give the media player the path
+                    WindowsMediaPlayer.Ctlcontrols.play();//play the media player
+                    IsSongPlaying = true;//enable song is playing
+                    Timer.Enabled = false;//stop the timer
                 }
             }
-            if (WhichList == 1)
+            if (WhichList == 1)//if the list chosen is the second one
             {
-                listSelected = 1;
-                if (IsSongPlaying == true)
+                listSelected = 1;//sets the list selected 
+                if (IsSongPlaying == true)//if a song is alread playing
                 {
-                    AddToPlaylist();
+                    AddToPlaylist();//call the playlist function
                 }
-                else if (IsSongPlaying == false)
+                else if (IsSongPlaying == false)//if a song isnt playing
                 {
-                    PresentlyPlaying_txt.Text = ListOne[SelectedIndex + 2];
-                    string FullTrackPath = TrackFileDirectory + PresentlyPlaying_txt.Text;
-                    WindowsMediaPlayer.URL = FullTrackPath;
-                    WindowsMediaPlayer.Ctlcontrols.play();
-                    IsSongPlaying = true;
-                    Timer.Enabled = false;
+                    PresentlyPlaying_txt.Text = ListOne[SelectedIndex + 2];//add the song chosen to the presenetly playing text box
+                    string FullTrackPath = TrackFileDirectory + PresentlyPlaying_txt.Text;//create the full path so the song can be played
+                    WindowsMediaPlayer.URL = FullTrackPath;//give the media player the path
+                    WindowsMediaPlayer.Ctlcontrols.play();//play the media player
+                    IsSongPlaying = true;//enable song is playing
+                    Timer.Enabled = false;//stop the timer
                 }
             }
-            if (WhichList == 2)
+            if (WhichList == 2)//if the list chosen is the thrid one
             {
-                listSelected = 2;
-                if (IsSongPlaying == true)
+                listSelected = 2;//sets the list selected 
+                if (IsSongPlaying == true)//if a song is alread playing
                 {
-                    AddToPlaylist();
+                    AddToPlaylist();//call the playlist function
                 }
-                else if (IsSongPlaying == false)
+                else if (IsSongPlaying == false)//if a song isnt playing
                 {
-                    PresentlyPlaying_txt.Text = ListOne[SelectedIndex + 2];
-                    string FullTrackPath = TrackFileDirectory + PresentlyPlaying_txt.Text;
-                    WindowsMediaPlayer.URL = FullTrackPath;
-                    WindowsMediaPlayer.Ctlcontrols.play();
-                    IsSongPlaying = true;
-                    Timer.Enabled = false;
+                    PresentlyPlaying_txt.Text = ListOne[SelectedIndex + 2];//add the song chosen to the presenetly playing text box
+                    string FullTrackPath = TrackFileDirectory + PresentlyPlaying_txt.Text;//create the full path so the song can be played
+                    WindowsMediaPlayer.URL = FullTrackPath;//give the media player the path
+                    WindowsMediaPlayer.Ctlcontrols.play();//play the media player
+                    IsSongPlaying = true;//enable song is playing
+                    Timer.Enabled = false;//stop the timer
                 }
             }
         }
 
         private void AddToPlaylist()
         {
-            if(listSelected == 0)
+            if(listSelected == 0) //if list 1 is selected
             {
-
-                PlayList_Lst.Items.Add(ListOne[SelectedIndex + 2]);
+                PlayList_Lst.Items.Add(ListOne[SelectedIndex + 2]);//add selected song to the playlist list box
             }
-            if (listSelected == 1)
+            if (listSelected == 1)//if list 2 is selected
             {
-
-                PlayList_Lst.Items.Add(ListTwo[SelectedIndex + 2]);
+                PlayList_Lst.Items.Add(ListTwo[SelectedIndex + 2]);//add selected song to the playlist list box
             }
-            if (listSelected == 2)
+            if (listSelected == 2)//if list 3 is selected
             {
-
-                PlayList_Lst.Items.Add(ListThree[SelectedIndex + 2]);
+                PlayList_Lst.Items.Add(ListThree[SelectedIndex + 2]);//add selected song to the playlist list box
             }
-
         }
 
         private void WindowsMediaPlayer_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
         {
-            if(WindowsMediaPlayer.playState == WMPLib.WMPPlayState.wmppsStopped)
+            if(WindowsMediaPlayer.playState == WMPLib.WMPPlayState.wmppsStopped)//if the media player is stopped
             {
-                IsSongPlaying = false;
-                Timer.Enabled = true;
+                IsSongPlaying = false;//song isnt playing
+                Timer.Enabled = true;//enable the timer
             }
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if(WindowsMediaPlayer.playState == WMPLib.WMPPlayState.wmppsStopped)
+            if(WindowsMediaPlayer.playState == WMPLib.WMPPlayState.wmppsStopped)//if the media player is stopped
             {
-                Timer.Enabled = false;
-                GoToNextTrack();
+                Timer.Enabled = false;//stop the timer
+                GoToNextTrack();//call function to move next track into the presently playing
                 
             }
         }
 
         private void GoToNextTrack()
         {
-            PresentlyPlaying_txt.Text = PlayList_Lst.Items[0].ToString();
-            PlayList_Lst.Items.RemoveAt(0);
+            PresentlyPlaying_txt.Text = PlayList_Lst.Items[0].ToString();//put the next song into the presently playing text box
+            PlayList_Lst.Items.RemoveAt(0);//remove the item in the list
 
-            string FullPathTrack = TrackFileDirectory + PresentlyPlaying_txt.Text;
-            WindowsMediaPlayer.URL = FullPathTrack;
-            WindowsMediaPlayer.Ctlcontrols.play();
-            IsSongPlaying = true;
+            string FullPathTrack = TrackFileDirectory + PresentlyPlaying_txt.Text;//create a full path for the media player
+            WindowsMediaPlayer.URL = FullPathTrack;//give the media player the path 
+            WindowsMediaPlayer.Ctlcontrols.play();//play the media player
+            IsSongPlaying = true;//enable song playing as true
 
         }
     }
