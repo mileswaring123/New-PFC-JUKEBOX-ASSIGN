@@ -24,12 +24,16 @@ namespace JukeboxMain
         string[] ListTwo = new string[20];
         string[] ListThree = new string[20];
 
-
+        ListBox[] DisplayListBox = new ListBox[3];
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
             ReadTextFile();
+            DisplayListBox[0] = new ListBox();
+            
+
+
         }
 
 
