@@ -131,6 +131,7 @@
             // 
             // Timer
             // 
+            this.Timer.Interval = 3000;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // Form1
