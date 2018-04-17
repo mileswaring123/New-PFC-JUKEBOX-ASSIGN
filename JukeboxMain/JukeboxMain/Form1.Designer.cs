@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.setUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,6 +40,7 @@
             this.PresentlyPlaying_txt = new System.Windows.Forms.TextBox();
             this.WindowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.PlayList_Lst = new System.Windows.Forms.ListBox();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WindowsMediaPlayer)).BeginInit();
             this.SuspendLayout();
@@ -117,6 +119,7 @@
             this.WindowsMediaPlayer.Size = new System.Drawing.Size(75, 23);
             this.WindowsMediaPlayer.TabIndex = 6;
             this.WindowsMediaPlayer.Visible = false;
+            this.WindowsMediaPlayer.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.WindowsMediaPlayer_PlayStateChange);
             // 
             // PlayList_Lst
             // 
@@ -125,6 +128,10 @@
             this.PlayList_Lst.Name = "PlayList_Lst";
             this.PlayList_Lst.Size = new System.Drawing.Size(164, 108);
             this.PlayList_Lst.TabIndex = 7;
+            // 
+            // Timer
+            // 
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // Form1
             // 
@@ -166,6 +173,7 @@
         private System.Windows.Forms.TextBox PresentlyPlaying_txt;
         private AxWMPLib.AxWindowsMediaPlayer WindowsMediaPlayer;
         private System.Windows.Forms.ListBox PlayList_Lst;
+        private System.Windows.Forms.Timer Timer;
     }
 }
 

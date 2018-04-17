@@ -151,6 +151,7 @@ namespace JukeboxMain
                     WindowsMediaPlayer.URL = FullTrackPath;
                     WindowsMediaPlayer.Ctlcontrols.play();
                     IsSongPlaying = true;
+                    Timer.Enabled = true;
                 }
             }
             if (WhichList == 1)
@@ -167,6 +168,7 @@ namespace JukeboxMain
                     WindowsMediaPlayer.URL = FullTrackPath;
                     WindowsMediaPlayer.Ctlcontrols.play();
                     IsSongPlaying = true;
+                    Timer.Enabled = true;
                 }
             }
             if (WhichList == 2)
@@ -183,6 +185,7 @@ namespace JukeboxMain
                     WindowsMediaPlayer.URL = FullTrackPath;
                     WindowsMediaPlayer.Ctlcontrols.play();
                     IsSongPlaying = true;
+                    Timer.Enabled = true;
                 }
             }
         }
@@ -207,5 +210,18 @@ namespace JukeboxMain
 
         }
 
+        private void WindowsMediaPlayer_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+            if(WindowsMediaPlayer.playState == WMPLib.WMPPlayState.wmppsStopped)
+            {
+                IsSongPlaying = false;
+                Timer.Enabled = false;
+            }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
