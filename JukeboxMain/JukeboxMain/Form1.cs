@@ -17,7 +17,7 @@ namespace JukeboxMain
             InitializeComponent();
         }
         string MediaFileDirectory = Directory.GetCurrentDirectory() + "\\Media\\";
-
+        int NoOfLists;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -26,7 +26,11 @@ namespace JukeboxMain
             int LineCounter = 0;
             while((LineOfText = myInputStream.ReadLine()) != null)
             { 
-                //MessageBox.Show(LineOfText);
+                if(int.TryParse(LineOfText, out NoOfLists))
+                {
+                    NoOfLists = Convert.ToInt32(LineOfText);
+                    MessageBox.Show(NoOfLists.ToString());
+                }
             }
         }
     }
