@@ -16,10 +16,18 @@ namespace JukeboxMain
         {
             InitializeComponent();
         }
+        string MediaFileDirectory = Directory.GetCurrentDirectory() + "\\Media\\";
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            StreamReader myInputStream = File.OpenText(MediaFileDirectory + "Media.txt");
+            string LineOfText;
+            int LineCounter = 0;
+            while((LineOfText = myInputStream.ReadLine()) != null)
+            { 
+                //MessageBox.Show(LineOfText);
+            }
         }
     }
 }
